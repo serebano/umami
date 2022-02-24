@@ -19,7 +19,7 @@ body {
 
 body {
   color: var(--gray900);
-  background: var(--gray75);
+  background: var(--gray50);
 }
 
 .zh-CN {
@@ -50,9 +50,6 @@ body {
 .he-IL {
   font-family: 'New Peninim MT', 'Arial Hebrew', Gisha, 'Times New Roman', Roboto, Noto,
     'Noto Sans Hebrew', sans-serif !important;
-}
-
-.he-IL {
   display: inline-block;
   direction: rtl;
 }

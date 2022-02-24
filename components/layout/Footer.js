@@ -12,9 +12,8 @@ export default function Footer() {
 
   return (
     <footer className="container" dir={dir}>
-      <div className={classNames(styles.footer, 'row')}>
-        <div className="col-12 col-md-4" />
-        <div className="col-12 col-md-4">
+      <div className={classNames(styles.footer)}>
+        <div className={classNames(styles.text, '')}>
           <FormattedMessage
             id="message.powered-by"
             defaultMessage="Powered by {name}"
@@ -25,9 +24,14 @@ export default function Footer() {
                 </Link>
               ),
             }}
-          />
+          />{' '}
+          ({' '}
+          <Link href="https://tictapp.dev">
+            <b>tictapp</b>
+          </Link>
+          /0.0.1 )
         </div>
-        <div className={classNames(styles.version, 'col-12 col-md-4')}>
+        <div className={classNames(styles.version, '')}>
           <Link href={`https://github.com/mikecao/umami/releases`}>{`v${current}`}</Link>
         </div>
       </div>

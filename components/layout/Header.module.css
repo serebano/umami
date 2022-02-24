@@ -1,8 +1,8 @@
 .navbar {
-  align-items: stretch;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
 }
 
@@ -12,8 +12,8 @@
 
 .header {
   display: flex;
-  min-height: 100px;
   width: 100%;
+  position: relative;
 }
 
 .title {
@@ -21,10 +21,39 @@
   display: flex;
   align-items: center;
   line-height: 1.4;
+  margin-right: 20px;
 }
 
 .logo {
-  margin-right: 12px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.burger svg {
+  width: 24px;
+  height: 24px;
+  opacity: 0.8;
+}
+
+.logo svg {
+  width: 36px;
+  height: 36px;
+}
+
+.icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+.icon svg {
+  width: 28px;
+  height: 28px;
 }
 
 .nav {
@@ -33,20 +62,22 @@
   font-size: var(--font-size-normal);
   font-weight: 600;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .items {
+  position: absolute;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--font-size-normal);
-  font-weight: 600;
+  font-size: var(--font-size-large);
+  font-weight: 500;
 }
 
-.nav a + a {
+/* .nav a + a {
   margin-left: 40px;
-}
+} */
 
 .buttons {
   display: flex;
@@ -57,37 +88,41 @@
 @media only screen and (max-width: 992px) {
   .nav {
     font-size: var(--font-size-large);
-    justify-content: space-between;
-    margin: 20px 0;
+    justify-content: start;
   }
   .items {
     flex-wrap: wrap;
   }
 }
-
 @media only screen and (max-width: 768px) {
   .header {
-    padding: 0 15px;
+    /* padding: 0 15px; */
   }
 
   .title {
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
   }
 
   .nav {
     font-size: var(--font-size-normal);
     flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: start;
+    /* flex-direction: column; */
+    align-items: center;
     position: relative;
   }
 
   .items {
+    position: absolute;
+    right: 0;
     display: flex;
     justify-content: unset;
     font-size: var(--font-size-normal);
     font-weight: 600;
+    background: var(--gray75);
+    border-radius: 12px;
+    box-shadow: 0 0 5px var(--gray75);
+    padding-right: 48px;
   }
 
   .items > div {
@@ -99,18 +134,17 @@
     width: 100%;
   }
 
-  .items a {
+  /* .items a {
     width: 100%;
-  }
+  } */
 
   .burger {
     display: block;
     background: none;
-    border: 1px solid var(--gray900);
-    border-radius: 4px;
     cursor: pointer;
     position: absolute;
-    top: 0;
+    top: 12;
     right: 0;
+    z-index: 10;
   }
 }

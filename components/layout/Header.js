@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 import Link from 'components/common/Link';
@@ -9,7 +8,12 @@ import ThemeButton from 'components/settings/ThemeButton';
 import UpdateNotice from 'components/common/UpdateNotice';
 import UserButton from 'components/settings/UserButton';
 import Button from 'components/common/Button';
-import Logo from 'assets/logo.svg';
+import Logo from 'assets/tictapp-icon.svg';
+
+import Realtime from 'assets/activity.svg';
+import SettingsOutline from 'assets/settings-outline.svg';
+import GridOutline from 'assets/grid-outline.svg';
+
 import styles from './Header.module.css';
 import useLocale from 'hooks/useLocale';
 import XMark from 'assets/xmark.svg';
@@ -31,30 +35,37 @@ export default function Header() {
         <div className={styles.nav}>
           <div className="">
             <div className={styles.title}>
-              <Icon icon={<Logo />} size="large" className={styles.logo} />
-              <Link href={user ? '/' : 'https://umami.is'}>umami</Link>
+              <Icon icon={<Logo />} size="xlarge" className={styles.logo} />
+              <Link href={user ? '/' : '/'}>stats</Link>
             </div>
           </div>
+
+          {user && (
+            <div className={styles.items2}>
+              <div className={active ? classNames(styles.active) : ''}>
+                <Link href="/dashboard">
+                  <Icon icon={<GridOutline />} size="large" className={styles.icon} />
+                  {/* <FormattedMessage id="label.dashboard" defaultMessage="Dashboard" /> */}
+                </Link>
+                <Link href="/realtime">
+                  <Icon icon={<Realtime />} size="large" className={styles.icon} />
+                  {/* <FormattedMessage id="label.realtime" defaultMessage="Realtime" /> */}
+                </Link>
+                <Link href="/settings">
+                  <Icon icon={<SettingsOutline />} size="large" className={styles.icon} />
+
+                  {/* <FormattedMessage id="label.settings" defaultMessage="Settings" /> */}
+                </Link>
+              </div>
+            </div>
+          )}
+
           <Button
             className={styles.burger}
             icon={active ? <XMark /> : <Bars />}
             onClick={handleClick}
           />
-          {user && (
-            <div className={styles.items}>
-              <div className={active ? classNames(styles.active) : ''}>
-                <Link href="/dashboard">
-                  <FormattedMessage id="label.dashboard" defaultMessage="Dashboard" />
-                </Link>
-                <Link href="/realtime">
-                  <FormattedMessage id="label.realtime" defaultMessage="Realtime" />
-                </Link>
-                <Link href="/settings">
-                  <FormattedMessage id="label.settings" defaultMessage="Settings" />
-                </Link>
-              </div>
-            </div>
-          )}
+
           <div className={styles.items}>
             <div className={active ? classNames(styles.active) : ''}>
               <div className={styles.buttons}>
