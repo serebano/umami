@@ -1,9 +1,15 @@
-.title {
+.title div {
   color: var(--gray900);
-  font-size: var(--font-size-large);
-  line-height: var(--font-size-large);
+  font-size: var(--font-size-base);
+  display: flex;
+  align-items: center;
+  justify-items: center;
 }
 
+.title img {
+  width: 24px;
+  height: 24px;
+}
 .link {
   font-weight: 600;
 }

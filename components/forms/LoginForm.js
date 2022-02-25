@@ -10,7 +10,7 @@ import FormLayout, {
   FormRow,
 } from 'components/layout/FormLayout';
 import Icon from 'components/common/Icon';
-import Logo from 'assets/logo.svg';
+import Logo from 'assets/tictapp-icon.svg';
 import styles from './LoginForm.module.css';
 import usePost from 'hooks/usePost';
 import { setItem } from 'lib/web';
@@ -72,7 +72,7 @@ export default function LoginForm() {
           <Form>
             <div className={styles.header}>
               <Icon icon={<Logo />} size="xlarge" className={styles.icon} />
-              <h1 className="center">umami</h1>
+              <h1 className="center">stats</h1>
             </div>
             <FormRow>
               <label htmlFor="username">
@@ -98,6 +98,7 @@ export default function LoginForm() {
               </Button>
             </FormButtons>
             <FormMessage>{message}</FormMessage>
+            <div className={styles.footer}>@tictapp/stats</div>
           </Form>
         )}
       </Formik>

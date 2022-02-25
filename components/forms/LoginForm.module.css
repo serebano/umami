@@ -8,16 +8,24 @@
   margin: 0 auto;
 }
 
-.icon {
+.header {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
-}
-
-.header {
-  margin-bottom: 30px;
+  align-items: center;
+  margin: 30px auto;
 }
 
 .header h1 {
-  margin: 12px 0;
+  font-weight: bold;
+  font-size: 36px;
+  opacity: 0.9;
+  margin-left: 6px;
+}
+
+.footer {
+  font-size: 12px;
+  opacity: 0.3;
+  font-weight: 700;
+  margin: 50px auto;
+  text-align: center;
 }
