@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Checkout master
+    - name: Checkout tictapp
       uses: actions/checkout@v2
 
     - name: Build PostgreSQL container image
       run: | 
-        docker build --build-arg DATABASE_TYPE=postgresql \
+        docker build --build-arg DATABASE_TYPE=postgresql --build-arg TRACKER_SCRIPT_NAME=track \
         --tag ghcr.io/$GITHUB_ACTOR/tictapp-umami:postgresql-$(echo $GITHUB_SHA | head -c7) \
         --tag ghcr.io/$GITHUB_ACTOR/tictapp-umami:postgresql-latest \
         .
@@ -28,6 +28,5 @@ jobs:
     - name: Push image to GitHub
       run: |
         # Push each image individually, avoiding pushing to umami:latest
-        # as MySQL or PostgreSQL are required
         docker push ghcr.io/$GITHUB_ACTOR/tictapp-umami:postgresql-$(echo $GITHUB_SHA | head -c7)
         docker push ghcr.io/$GITHUB_ACTOR/tictapp-umami:postgresql-latest
